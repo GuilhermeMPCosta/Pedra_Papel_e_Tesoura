@@ -1,3 +1,3 @@
 # Rock-Paper-Scissors
 
-Jogo pedra papel e tesoura desenvolvido em python
+Projeto desenvolvido em python com o intuiot de requriar o jogo pedra, papel e tesoura
