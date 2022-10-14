@@ -1,37 +1,53 @@
+from distutils.command.clean import clean
 from optparse import Option
 import random
+from turtle import clear
 
 user_win=0
 computer_win=0
+draw=0
 
-options = ["rock", "paper","scissors"]
+options = ["pedra", "papel","tesoura"]
 options[0]
 
 while True:
-    user_input = input("Type Rock/Paper/Scissors or Q to quit: ").lower()
+    user_input = input("Type pedra/papel/tesoura or Q to quit: ").lower()
     if user_input == 'q':
         break
     
-    if user_input not in ["rock", "paper","scissors"]:
+    if user_input not in ["pedra", "papel","tesoura"]:
         continue    
 
     random_number=random.randint(0,2)
     computer_pick=options[random_number]
-    print("Computer picked",computer_pick + ".")
+    print("O computador escolheu",computer_pick + ".")
 
-    if user_input == "rock" and computer_pick == "scissors":
-        print("You Won")
+    if user_input == "pedra" and computer_pick == "tesoura":
+        print("Você Ganhou")
         user_win += 1
-    elif user_input == "paper" and computer_pick == "rock":
-        print("You Won")
+    elif user_input == "papel" and computer_pick == "pedra":
+        print("Você Ganhou")
         user_win += 1
-    elif user_input == "scissors" and computer_pick == "papers":
-        print("You Won")
+    elif user_input == "tesoura" and computer_pick == "papel":
+        print("Você Ganhou")
         user_win += 1
     else:
-        print("You Lost")
-        computer_win += 1   
+        if user_input == "pedra" and computer_pick == "pedra":
+            print("Empate")
+            draw += 1
+        else:
+            if user_input == "papel" and computer_pick == "papel":
+                print("Empate")
+                draw += 1
+            else:
+                if user_input == "tesoura" and computer_pick == "tesoura":
+                    print("Empate")
+                    draw += 1
+                else:
+                    print("Você Perdeu")
+                    computer_win += 1   
 
-print("User won", user_win, "times")
-print("Computer won", computer_win, "times")
-print("GoodBye" )
+print("O jogador ganhou", user_win, "vezes")
+print("O computador ganhou", computer_win, "vezes")
+print("Houve ", draw, "empates")
+print("Até Mais")
